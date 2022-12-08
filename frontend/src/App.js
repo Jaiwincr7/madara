@@ -7,6 +7,7 @@ import Container from "./components/container";
 import Footer from "./components/footer";
 import Signup from "../src/Sign-in";
 import Login from "../src/Login";
+import AllAnime from "./AllAnime";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
@@ -40,6 +41,10 @@ function App() {
         <Routes>
           <Route path="/" element />
         </Routes>
+        <Routes>
+          <Route path="/all_anime" element={<AllAnime/>} />
+        </Routes>
+        {/* <AllAnime/> */}
         <header>
           <Navbar />
           <Slider />

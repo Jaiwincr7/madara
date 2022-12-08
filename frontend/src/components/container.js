@@ -6,105 +6,37 @@ import Mob from "./photos/mob.jpg";
 import Vinland from "./photos/vinland.jpg";
 import one from "./photos/one-p.jpg"
 import Dragon from "./photos/dragon-ball.jpg"
-
-import {useState, useEffect} from "react";
+import {Link } from "react-router-dom";
+import { sanitizeFilter } from "mongoose";
 
 function Container(){
     return(
         
         <div className="container-flex">
         <div className="conatiner">
-            <h2>Top Airing</h2>
             <div className="conatiner-row">
                 <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
+                <p>Bleach</p>
             </div>
             <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
+                <img src={Mob}></img>
+                <p>Mob Pyscho 100</p>
             </div>
             <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
+                <img src={Vinland}></img>
+                <p>Vinland Saga</p>
             </div>
             <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
+                <img src={Dragon}></img>
+                <p>Dragon Ball</p>
             </div>
-            <div className="conatiner-row container-row">
-            <p>View</p>
+            <Link className="link" to ="/all_anime">
+            <div className="conatiner-row arrow">
+            <p>View More</p>
             <BsArrowRightSquareFill/>
             </div>
-        </div>
-        <div className="conatiner">
-            <h2>Most Popular</h2>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row container-row">
-            <p>View</p>
-            <BsArrowRightSquareFill/>
-            </div>
-        </div>
-        <div className="conatiner">
-            <h2>Most Favorite</h2>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row container-row">
-            <p>View</p>
-            <BsArrowRightSquareFill/>
-            </div>
-        </div>
-        <div className="conatiner">
-            <h2>Completed</h2>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row">
-                <img src={bleach}></img>
-                <p>Bleach Thousand Year Blood War</p>
-            </div>
-            <div className="conatiner-row container-row">
-            <p>View</p>
-            <BsArrowRightSquareFill/>
-            </div>
-        </div>
+            </Link>
+        </div> 
         </div>
     );
 }

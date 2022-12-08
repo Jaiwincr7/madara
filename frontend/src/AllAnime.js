@@ -1,8 +1,9 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React from "react";
+import {Link} from "react-router-dom";
+import axios from "axios";
 import {useState, useEffect} from "react";
-
-import bleach from "./photos/bleach.jpg";
+import Carousel from "react-multi-carousel";
+// import bleach from "./photos/bleach.jpg";
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -35,36 +36,43 @@ const responsive = {
     }
 };
 
-function Slider1() {
+function cutt(value){
+    var count = 200;
+    var trim= value.substr(0, count);
+    return trim;  
+}
+function AllAnime() {
     const [advice, setAdvice] = useState([""]);
 
     useEffect(() => {
-        const url = "http://localhost:8000/random20";
+        const url = "http://localhost:8000/filter";
 
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
                 setAdvice(json);
             } catch (error) {
                 console.log("error", error);
             }
         };
-
         fetchData();
     }, []);
-
+    document
+        .querySelector("nav")
+        .style
+        .display = "none";
     return (
-        <Carousel
+        <div className="all-anime">
+        <div className="genre-type">
+            <h1>Thriller</h1>
+            <Carousel
             responsive={responsive}
-            className="slider1"
-            style={{
-                backgroundImage: `url(${bleach})`
-            }}>
+            className="slider1 anime-display">
             {
                 advice.map((e) => {
                     return (
+                        <div>
                         <div
                             className="background_img"
                             style={{
@@ -72,12 +80,15 @@ function Slider1() {
                             }}>
                             <p className="animename">{e.Name}</p>
                             <p className="noe">No of episode-{e.noe}</p>
+                            <p className="noe anime-para">{cutt(`${e.description}`)}</p>
+                        </div>
                         </div>
                     )
                 })
             }
         </Carousel>
-    );
+        </div>
+        </div>
+    )
 }
-
-export default Slider1;
+export default AllAnime;

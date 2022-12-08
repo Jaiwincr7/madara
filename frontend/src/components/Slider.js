@@ -6,7 +6,7 @@ function Slider(){
     const [advice, setAdvice] = useState([""]);
 
     useEffect(() => {
-        const url = "http://localhost:8000/data";
+        const url = "http://localhost:8000/introductionsort";
 
         const fetchData = async () => {
             try {
@@ -27,7 +27,8 @@ return(
     return(
         <div>
         <img src={e.img_url}/>
-        <p className="legend" id="legend">{e.Name}</p>
+        <p className="legend" id="legend">{e.Name}
+        <p className="des">{e.description}</p></p>
         </div>
     );
 })}
